@@ -55,18 +55,36 @@ $("#header").append(formattedHTMLskills);
 var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedHTMLbioPic);
 
-var work = {
-  "currentJobPosition": "JS and Python Developer",
+var work = [{
+  "title": "JS and Python Developer",
   "employer": "ACME Corp",
-  "yearsWorked": 5,
-  "cityOfBusiness": "Wellington"
-};
+  "location": "Wellington",
+  "dates": "1/1/2016",
+  "description": "Developing things"
+}];
 
-var education = {
+var projects = [{
+  "title": "The Big Push",
+  "dates": "3/3/2014",
+  "description": "Doing stuff",
+  "images": "http://www.xyz.com/pic.jpg"
+}];
+
+var education = [{
   "name": "EDA",
-  "yearsAttended": "2016",
-  "schoolsCity": "Wellington"
-};
+  "dates": "5/5/2016",
+  "location": "Wellington",
+  "degree": "Bachelor",
+  "majors": ["CompSci","Stamp Collecting"],
+  "url": "http://www.eda.com"
+  },
+  var onlineCourses = [{
+    "title": "HTML and CSS",
+    "school": "Udacity",
+    "dates": "1/1/1970",
+    "url", "www.udacity.com"
+  }]
+];
 
 var formattedHTMLworkTitle = HTMLworkTitle.replace("%data%", work["currentJobPosition"]);
 $("#header").append(formattedHTMLworkTitle);
