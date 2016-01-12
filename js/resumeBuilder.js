@@ -9,14 +9,40 @@ This is empty on purpose! Your code to build the resume will go here.
 //var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
 //$("#main").append(funThoughts);
 
-var name = "Howard Smith";
-var role = "Developer";
+//var name = "Howard Smith";
+//var role = "Developer";
 
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
+//var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+//$("#header").prepend(formattedRole);
+//$("#header").prepend(formattedName);
+
+
+
+//var formattedBio = HTMLheaderBio.replace("%data%", bio);
+//$("#header").append(formattedBio);
+
+//var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contact_info);
+//$("#header").append(formattedContactGeneric);
+
+// --------------------------------------------
+
+//var formattedHTMLcontacts = HTMLcontactGeneric.replace("%contact%", "Here's my contact info:");
+//$("#header").append(formattedHTMLcontacts);
+
+//var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+//$("#header").append(formattedHTMLmobile);
+
+// --------------------------------------------
+
+//var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+//$("#header").append(formattedWelcomeMsg);
+
+//var formattedHTMLskills = HTMLskills.replace("%data%", bio.skills);
+//$("#header").append(formattedHTMLskills);
+
+//var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+//$("#header").append(formattedHTMLbioPic);
 
 var bio = {
   "name": name,
@@ -29,31 +55,6 @@ var bio = {
   "skills": ["programming", "teaching", "making coffee"],
   "bioPic": "images/fry.jpg"
 };
-
-//var formattedBio = HTMLheaderBio.replace("%data%", bio);
-//$("#header").append(formattedBio);
-
-//var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contact_info);
-//$("#header").append(formattedContactGeneric);
-
-// --------------------------------------------
-
-var formattedHTMLcontacts = HTMLcontactGeneric.replace("%contact%", "Here's my contact info:");
-$("#header").append(formattedHTMLcontacts);
-
-var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#header").append(formattedHTMLmobile);
-
-// --------------------------------------------
-
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedWelcomeMsg);
-
-var formattedHTMLskills = HTMLskills.replace("%data%", bio.skills);
-$("#header").append(formattedHTMLskills);
-
-var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedHTMLbioPic);
 
 var work = [{
   "title": "JS and Python Developer",
@@ -86,8 +87,8 @@ var education = [{
   }]
 ];
 
-var formattedHTMLworkTitle = HTMLworkTitle.replace("%data%", work["currentJobPosition"]);
-$("#header").append(formattedHTMLworkTitle);
+//var formattedHTMLworkTitle = HTMLworkTitle.replace("%data%", work["currentJobPosition"]);
+//$("#header").append(formattedHTMLworkTitle);
 
-var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.name);
-$("#header").append(formattedHTMLschoolName);
+//var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.name);
+//$("#header").append(formattedHTMLschoolName);
