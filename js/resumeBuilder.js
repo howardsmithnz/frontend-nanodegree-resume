@@ -1,94 +1,125 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-//$("#main").append("Howard");
 
-//var awesomeThoughts = "I am Howard and I am AWESOME!";
-//console.log(awesomeThoughts);
-
-//var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-//$("#main").append(funThoughts);
-
-//var name = "Howard Smith";
-//var role = "Developer";
-
-//var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-//$("#header").prepend(formattedRole);
-//$("#header").prepend(formattedName);
-
-
-
-//var formattedBio = HTMLheaderBio.replace("%data%", bio);
-//$("#header").append(formattedBio);
-
-//var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contact_info);
-//$("#header").append(formattedContactGeneric);
-
-// --------------------------------------------
-
-//var formattedHTMLcontacts = HTMLcontactGeneric.replace("%contact%", "Here's my contact info:");
-//$("#header").append(formattedHTMLcontacts);
-
-//var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-//$("#header").append(formattedHTMLmobile);
-
-// --------------------------------------------
-
-//var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-//$("#header").append(formattedWelcomeMsg);
-
-//var formattedHTMLskills = HTMLskills.replace("%data%", bio.skills);
-//$("#header").append(formattedHTMLskills);
-
-//var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-//$("#header").append(formattedHTMLbioPic);
+// ----------------------- Data Objects -----------------------------
 
 var bio = {
   "name": name,
   "role": role,
   "contacts": {
     "mobile": "123-456-789",
-    "email": "name@abc.com"
+    "email": "name@abc.com",
+    "github": "howardsmithnz",
+    "location": "Wellington"
   },
-  "welcomeMessage": "Hello and welcome!",
+  "welcomeMessage": "Hello and welcome! Lorem Ipsum and all that",
   "skills": ["programming", "teaching", "making coffee"],
   "bioPic": "images/fry.jpg"
 };
 
-var work = [{
-  "title": "JS and Python Developer",
-  "employer": "ACME Corp",
-  "location": "Wellington",
-  "dates": "1/1/2016",
-  "description": "Developing things"
-}];
+var work = {
+  "jobs": [{
+    "title": "JS and Python Developer",
+    "employer": "ACME Corp",
+    "location": "Wellington",
+    "dates": "2016-2020",
+    "description": "Developing things. Developing things. Developing things. Developing things. Developing things. Developing things. Developing things. Developing things. "
+    }, 
+    {
+    "title": "Implementation Consultant",
+    "employer": "SilentOne",
+    "location": "Wellington",
+    "dates": "2004-2006",
+    "description": "Implementing things. Implementing things. Implementing things. Implementing things. Implementing things. Implementing things. Implementing things. Implementing things. "
+    }]
+  };
 
-var projects = [{
-  "title": "The Big Push",
-  "dates": "3/3/2014",
-  "description": "Doing stuff",
-  "images": "http://www.xyz.com/pic.jpg"
-}];
+var projects = { 
+  "project": [{
+    "title": "The Big Push",
+    "dates": "3/3/2014",
+    "description": "Doing stuff",
+    "images": "http://www.xyz.com/pic.jpg"
+    }]
+  };
+var education = {
+  "schools": [{
+    "name": "EDA",
+    "dates": "5/5/2016",
+    "location": "Wellington",
+    "degree": "Bachelor",
+    "majors": ["CompSci","Stamp Collecting"],
+    "url": "http://www.eda.com"
+    }],
+    "onlineCourses": [{
+      "title": "HTML and CSS",
+      "school": "Udacity",
+      "dates": "1/1/1970",
+      "url": "www.udacity.com"
+    }]
+  };
 
-var education = [{
-  "name": "EDA",
-  "dates": "5/5/2016",
-  "location": "Wellington",
-  "degree": "Bachelor",
-  "majors": ["CompSci","Stamp Collecting"],
-  "url": "http://www.eda.com"
-  },
-  var onlineCourses = [{
-    "title": "HTML and CSS",
-    "school": "Udacity",
-    "dates": "1/1/1970",
-    "url", "www.udacity.com"
-  }]
-];
+// --------------------- DOM Manipulation ---------------------------
 
-//var formattedHTMLworkTitle = HTMLworkTitle.replace("%data%", work["currentJobPosition"]);
-//$("#header").append(formattedHTMLworkTitle);
+// Make title of name(as an H1) and role
+var name = "Howard Smith";
+var role = "Developer";
+var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 
-//var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.name);
-//$("#header").append(formattedHTMLschoolName);
+// Add contact details as a horizontal wrapped list
+var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#topContacts").append(formattedHTMLmobile);
+
+var formattedHTMLemail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts").append(formattedHTMLemail);
+
+var formattedHTMLgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedHTMLgithub);
+
+var formattedHTMLlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedHTMLlocation);
+
+// Add a welcome message
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedWelcomeMsg);
+
+// Add a pic
+var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+$("#header").append(formattedHTMLbioPic);
+
+// Add some skills as a list (doing this manually - no loop yet)
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills").append(formattedSkill);
+} 
+
+// Add some previous jobs as a list (using a loop)
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  $(".work-entry:last").append(formattedEmployerTitle);
+
+  var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+  $(".work-entry:last").append(formattedWorkLocation);
+
+  var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  $(".work-entry:last").append(formattedWorkDates);
+
+  var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+  $(".work-entry:last").append(formattedWorkDescription);
+}
+
+// var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.name);
+// $("#header").append(formattedHTMLschoolName);
