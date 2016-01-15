@@ -38,27 +38,42 @@ var work = {
 var projects = { 
   "projectList": [{
     "title": "The Big Push",
-    "dates": "3/3/2014",
+    "dates": " Mar.2014",
     "description": "Doing stuff",
     "image": "http://www.xyz.com/pic.jpg"
+    },
+    {
+    "title": "Project X",
+    "dates": "2000",
+    "description": "Sorry, can't say...",
+    "image": "http://www.xyz.com/pic.jpg"
     }]
-  };
+};
+
 var education = {
   "schools": [{
     "name": "EDA",
-    "dates": "5/5/2016",
+    "dates": "2015-2016",
     "location": "Wellington",
-    "degree": "Bachelor",
-    "majors": ["CompSci","Stamp Collecting"],
+    "degree": "Dev Bootcamp",
+    "majors": ["Software Development"],
     "url": "http://www.eda.com"
+    },
+    {
+    "name": "Massey University",
+    "dates": "1987-1991",
+    "location": "Palmerston North",
+    "degree": "Bachelor of Science",
+    "majors": ["Botany"],
+    "url": "http://www.massey.ac.nz"
     }],
-    "onlineCourses": [{
-      "title": "HTML and CSS",
-      "school": "Udacity",
-      "dates": "1/1/1970",
-      "url": "www.udacity.com"
-    }]
-  };
+  "onlineCourses": [{
+    "title": "HTML and CSS",
+    "school": "Udacity",
+    "dates": "1/1/1970",
+    "url": "www.udacity.com"
+  }]
+};
 
 // --------------------- DOM Manipulation ---------------------------
 
@@ -181,7 +196,46 @@ projects.display = function() {
 }
 
 projects.display();
-// $("#mapDiv").append("<h2>TEST</h2>");
+
+education.display = function() {
+  for (school in education.schools) {
+    $("#education").append(HTMLschoolStart);
+
+    var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    $(".education-entry:last").append(formattedSchoolName);
+
+    var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+    $(".education-entry:last").append(formattedSchoolDegree);
+
+    var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+    $(".education-entry:last").append(formattedSchoolDates);
+
+    var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+    $(".education-entry:last").append(formattedSchoolLocation);
+
+    var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+    $(".education-entry:last").append(formattedSchoolMajor);
+  }
+  for (course in education.onlineCourses) {
+    $("#education").append(HTMLonlineClasses);
+
+    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", /*education.onlineCourses[course].title*/ "TEST");
+    $("#education h3").next().append(formattedOnlineTitle);
+// XXXXX This has a weird render issue - </a> tag is appearing before " - Udacity"!! Why?? It's going INSIDE the h3 tag-- better fix this!!!
+  /*  var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+    $("#education h3").append(formattedOnlineSchool);
+
+    var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+    $("#education h3").append(formattedOnlineDates);
+
+    var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+    $("#education h3").append(formattedOnlineURL);
+*/
+  }
+}
+
+education.display();
+
 $("#mapDiv").append(googleMap);
 
 // console.log(inName("sebastian thrun") === "Sebastian THRUN");
